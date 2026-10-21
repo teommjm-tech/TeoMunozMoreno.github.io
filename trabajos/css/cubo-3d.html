@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cubo 3D con CSS</title>
+
+<style>
+
+/* =====================================================
+   CONFIGURACIÓN GENERAL DE LA PÁGINA
+   ===================================================== */
+
+/* Centramos el cubo en pantalla */
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#111;
+}
+
+/* =====================================================
+   ESTRUCTURA DEL CUBO
+   ===================================================== */
+
+/*
+   transform-style: preserve-3d
+   Permite que los hijos mantengan su posición en el espacio 3D.
+*/
+.cubo{
+    position:relative;
+    width:150px;
+    height:150px;
+    transform-style:preserve-3d;
+
+    /*
+       Animación de rotación continua del cubo.
+       Se usan rotateX, rotateY y rotateZ como pide el ejercicio.
+    */
+    animation: girar 5s infinite linear;
+}
+
+/* =====================================================
+   CARAS DEL CUBO
+   ===================================================== */
+
+/*
+   Todas las caras comparten tamaño y posición base.
+   Luego cada una se mueve en el eje Z o rota en X o Y.
+*/
+.cara{
+    position:absolute;
+    width:150px;
+    height:150px;
+    opacity: 0.9;
+}
+
+/* -----------------------------------------------------
+   CARA FRONTAL
+   Se mueve hacia el observador en el eje Z
+----------------------------------------------------- */
+.frente{
+    background:magenta;
+    transform: translateZ(75px);
+}
+
+/* -----------------------------------------------------
+   CARA TRASERA
+   Se gira 180° en Y y luego se mueve en Z
+----------------------------------------------------- */
+.atras{
+    background:purple;
+    transform: rotateY(180deg) translateZ(75px);
+}
+
+/* -----------------------------------------------------
+   CARA DERECHA
+   Se gira 90° en Y para formar el lateral
+----------------------------------------------------- */
+.derecha{
+    background:lime;
+    transform: rotateY(90deg) translateZ(75px);
+}
+
+/* -----------------------------------------------------
+   CARA IZQUIERDA
+----------------------------------------------------- */
+.izquierda{
+    background:cyan;
+    transform: rotateY(-90deg) translateZ(75px);
+}
+
+/* -----------------------------------------------------
+   CARA SUPERIOR
+   rotateX controla inclinación vertical
+----------------------------------------------------- */
+.arriba{
+    background:skyblue;
+    transform: rotateX(90deg) translateZ(75px);
+}
+
+/* -----------------------------------------------------
+   CARA INFERIOR
+----------------------------------------------------- */
+.abajo{
+    background:orange;
+    transform: rotateX(-90deg) translateZ(75px);
+}
+
+/* =====================================================
+   ANIMACIÓN DEL CUBO
+   ===================================================== */
+
+/*
+   El cubo rota en los tres ejes:
+   X → inclinación vertical
+   Y → giro horizontal
+   Z → rotación tipo trompo
+*/
+@keyframes girar{
+
+    from{
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+
+    to{
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     CONTENEDOR CON PERSPECTIVA
+     ===================================================== -->
+<div class="escena">
+
+    <!-- =================================================
+         CUBO 3D
+         ================================================= -->
+    <div class="cubo">
+
+        <!-- Cada cara es un DIV como pide el ejercicio -->
+        <div class="cara frente"></div>
+        <div class="cara atras"></div>
+        <div class="cara derecha"></div>
+        <div class="cara izquierda"></div>
+        <div class="cara arriba"></div>
+        <div class="cara abajo"></div>
+
+    </div>
+</div>
+
+</body>
+</html>

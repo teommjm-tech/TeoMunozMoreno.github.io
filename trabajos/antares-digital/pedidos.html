@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pedidos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .barra-arriba {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .logo-texto {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .menu a:hover {
+            color: #007BFF;
+        }
+
+        .contenido {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .progreso {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .paso {
+            padding: 10px 20px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .paso-activo {
+            background-color: black;
+            color: white;
+            border-color: black;
+        }
+
+        .paso-siguiente {
+            background-color: white;
+            color: black;
+            border-color: black;
+        }
+
+        .flecha {
+            width: 20px;
+            height: 2px;
+            background-color: #ddd;
+            margin: 0 10px;
+        }
+
+        .formulario {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .boton-negro {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            align-self: flex-end;
+            margin-top: 20px;
+        }
+
+        .pie-pagina {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 13px;
+            margin-top: 30px;
+        }
+
+        .pie-pagina a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="barra-arriba">
+        <div class="logo-texto">Antares Digital</div>
+        <div class="menu">
+            <a href="index.html">Inicio</a>
+            <a href="e-learning.html">E-learning</a>
+            <a href="contenidos.html">Contenidos</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="materiales.html">Materiales</a>
+            <a href="pedidos.html">Pedidos</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </div>
+
+    <div class="contenido">
+        <h1>Tramitación de Pedido</h1>
+
+        <div class="progreso">
+            <div class="paso paso-activo">Información</div>
+            <div class="flecha"></div>
+            <div class="paso paso-siguiente">Pago</div>
+            <div class="flecha"></div>
+            <div class="paso paso-siguiente">Confirmación</div>
+        </div>
+
+        <form class="formulario">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required>
+
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" required>
+
+            <button type="button" class="boton-negro">Continuar con el pago</button>
+        </form>
+    </div>
+
+    <div class="pie-pagina">
+        © 2025 Antares Digital | <a href="#">Contacto</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,534 @@
+COMANDOS COMPLETOS (BIEN)
+
+SWITCH 1
+enable
+configure terminal
+hostname Switch1
+no ip domain-lookup
+
+vlan 110
+ name DATOS_LEON
+exit
+vlan 210
+ name VOZ_LEON2
+exit
+
+interface fa0/2
+ switchport mode access
+ switchport access vlan 110
+ switchport voice vlan 210
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface fa0/3
+ switchport mode access
+ switchport access vlan 210
+ switchport voice vlan 210
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface fa0/4
+ switchport mode access
+ switchport access vlan 110
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface fa0/1
+ switchport mode trunk
+ switchport trunk allowed vlan 110,210
+ no shutdown
+exit
+
+end
+write
+
+
+
+SWITCH 0
+enable
+configure terminal
+hostname Switch0
+no ip domain-lookup
+
+vlan 50
+ name VOZ_LEON
+exit
+vlan 150
+ name DATOS_LEON2
+exit
+
+interface fa0/1
+ switchport mode trunk
+ switchport trunk allowed vlan 50,150
+ no shutdown
+exit
+
+interface fa0/2
+ switchport mode trunk
+ switchport trunk allowed vlan 50,150
+ no shutdown
+exit
+
+end
+write
+
+
+
+SWITCH 2
+enable
+configure terminal
+hostname Switch2
+no ip domain-lookup
+
+vlan 50
+ name VOZ_LEON
+exit
+vlan 150
+ name DATOS_LEON2
+exit
+
+interface fa0/2
+ switchport mode access
+ switchport access vlan 150
+ switchport voice vlan 50
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface fa0/3
+ switchport mode access
+ switchport access vlan 150
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface fa0/4
+ switchport mode access
+ switchport access vlan 150
+ switchport voice vlan 50
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface fa0/1
+ switchport mode trunk
+ switchport trunk allowed vlan 50,150
+ no shutdown
+exit
+
+end
+write
+
+
+
+SWITCH 3
+enable
+configure terminal
+hostname Switch3
+no ip domain-lookup
+
+vlan 172
+ name SERVIDORES
+exit
+
+interface range fa0/2-4
+ switchport mode access
+ switchport access vlan 172
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface fa0/1
+ switchport mode trunk
+ switchport trunk allowed vlan 172
+ no shutdown
+exit
+
+end
+write
+
+
+
+SWITCH 4
+enable
+configure terminal
+hostname Switch4
+no ip domain-lookup
+
+vlan 99
+ name ADMINISTRACION
+exit
+vlan 100
+ name DATOS_BURGOS
+exit
+
+interface fa0/3
+ switchport mode access
+ switchport access vlan 99
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface fa0/1
+ switchport mode trunk
+ switchport trunk allowed vlan 99,100
+ no shutdown
+exit
+
+interface fa0/2
+ switchport mode trunk
+ switchport trunk allowed vlan 99,100
+ no shutdown
+exit
+
+interface vlan 99
+ ip address 192.168.99.2 255.255.255.0
+ no shutdown
+exit
+
+ip default-gateway 192.168.99.1
+
+end
+write
+
+
+
+SWITCH 5
+enable
+configure terminal
+hostname Switch5
+no ip domain-lookup
+
+vlan 100
+ name DATOS_BURGOS
+exit
+
+interface range fa0/2-5
+ switchport mode access
+ switchport access vlan 100
+ spanning-tree portfast
+ no shutdown
+exit
+
+interface fa0/1
+ switchport mode trunk
+ switchport trunk allowed vlan 99,100
+ no shutdown
+exit
+
+interface vlan 99
+ ip address 192.168.99.3 255.255.255.0
+ no shutdown
+exit
+
+ip default-gateway 192.168.99.1
+
+end
+write
+
+
+
+SWITCH CAPA 3
+enable
+configure terminal
+hostname SW_CAPA3
+no ip domain-lookup
+ip routing
+
+vlan 99
+ name ADMINISTRACION
+exit
+vlan 100
+ name DATOS_BURGOS
+exit
+
+interface vlan 99
+ ip address 192.168.99.1 255.255.255.0
+ no shutdown
+exit
+
+interface vlan 100
+ ip address 192.168.100.1 255.255.255.0
+ no shutdown
+exit
+
+ip dhcp excluded-address 192.168.99.1 192.168.99.50
+ip dhcp excluded-address 192.168.100.1 192.168.100.50
+
+ip dhcp pool ADMINISTRACION
+ network 192.168.99.0 255.255.255.0
+ default-router 192.168.99.1
+ dns-server 172.16.0.10
+exit
+
+ip dhcp pool DATOS_BURGOS
+ network 192.168.100.0 255.255.255.0
+ default-router 192.168.100.1
+ dns-server 172.16.0.10
+exit
+
+interface fa0/1
+ no switchport
+ ip address 192.168.1.2 255.255.255.252
+ no shutdown
+exit
+
+interface fa0/2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport trunk allowed vlan 99,100
+ no shutdown
+exit
+
+ip route 0.0.0.0 0.0.0.0 192.168.1.1
+
+router rip
+ version 2
+ network 192.168.99.0
+ network 192.168.100.0
+ network 192.168.1.0
+ no auto-summary
+exit
+
+end
+write
+
+
+
+ROUTER LEON
+enable
+configure terminal
+hostname LEON
+no ip domain-lookup
+
+interface fa0/0
+ no ip address
+ no shutdown
+exit
+
+interface fa0/0.110
+ encapsulation dot1Q 110
+ ip address 192.168.110.1 255.255.255.0
+ no shutdown
+exit
+
+interface fa0/0.210
+ encapsulation dot1Q 210
+ ip address 192.168.210.1 255.255.255.0
+ no shutdown
+exit
+
+interface fa0/1
+ no ip address
+ no shutdown
+exit
+
+interface fa0/1.50
+ encapsulation dot1Q 50
+ ip address 192.168.50.1 255.255.255.0
+ no shutdown
+exit
+
+interface fa0/1.150
+ encapsulation dot1Q 150
+ ip address 192.168.150.1 255.255.255.0
+ no shutdown
+exit
+
+interface se1/0
+ ip address 10.0.0.1 255.255.255.252
+ no shutdown
+exit
+
+ip dhcp excluded-address 192.168.50.1 192.168.50.50
+ip dhcp excluded-address 192.168.110.1 192.168.110.50
+ip dhcp excluded-address 192.168.150.1 192.168.150.50
+ip dhcp excluded-address 192.168.210.1 192.168.210.50
+
+ip dhcp pool VOZ_LEON
+ network 192.168.50.0 255.255.255.0
+ default-router 192.168.50.1
+ dns-server 172.16.0.10
+ option 150 ip 192.168.50.1
+exit
+
+ip dhcp pool DATOS_LEON2
+ network 192.168.150.0 255.255.255.0
+ default-router 192.168.150.1
+ dns-server 172.16.0.10
+exit
+
+ip dhcp pool DATOS_LEON
+ network 192.168.110.0 255.255.255.0
+ default-router 192.168.110.1
+ dns-server 172.16.0.10
+exit
+
+ip dhcp pool VOZ_LEON2
+ network 192.168.210.0 255.255.255.0
+ default-router 192.168.210.1
+ dns-server 172.16.0.10
+ option 150 ip 192.168.210.1
+exit
+
+router rip
+ version 2
+ network 192.168.50.0
+ network 192.168.110.0
+ network 192.168.150.0
+ network 192.168.210.0
+ network 10.0.0.0
+ no auto-summary
+exit
+
+telephony-service
+ max-ephones 10
+ max-dn 10
+ ip source-address 192.168.50.1 port 2000
+ auto assign 1 to 10
+ create cnf-files
+exit
+
+ephone-dn 1
+ number 1001
+exit
+ephone-dn 2
+ number 1002
+exit
+ephone-dn 3
+ number 1003
+exit
+ephone-dn 4
+ number 1004
+exit
+
+end
+write
+
+
+
+ROUTER MADRID
+enable
+configure terminal
+hostname MADRID
+no ip domain-lookup
+
+interface fa0/0
+ no ip address
+ no shutdown
+exit
+
+interface fa0/0.172
+ encapsulation dot1Q 172
+ ip address 172.16.0.1 255.255.255.0
+ no shutdown
+exit
+
+interface se1/0
+ ip address 10.0.0.2 255.255.255.252
+ no shutdown
+exit
+
+interface se1/1
+ ip address 10.0.1.1 255.255.255.252
+ no shutdown
+exit
+
+interface se1/2
+ ip address 10.0.2.1 255.255.255.252
+ no shutdown
+exit
+
+ip route 0.0.0.0 0.0.0.0 10.0.2.2
+
+router rip
+ version 2
+ network 172.16.0.0
+ network 10.0.0.0
+ no auto-summary
+ default-information originate
+exit
+
+end
+write
+
+
+
+ROUTER BURGOS
+enable
+configure terminal
+hostname BURGOS
+no ip domain-lookup
+
+interface se1/0
+ ip address 10.0.1.2 255.255.255.252
+ no shutdown
+exit
+
+interface fa0/0
+ ip address 192.168.1.1 255.255.255.252
+ no shutdown
+exit
+
+router rip
+ version 2
+ network 10.0.0.0
+ network 192.168.1.0
+ no auto-summary
+exit
+
+end
+write
+
+
+
+ROUTER ISP
+enable
+configure terminal
+hostname ISP
+no ip domain-lookup
+
+interface se1/0
+ ip address 10.0.2.2 255.255.255.252
+ no shutdown
+exit
+
+end
+write
+
+
+
+SERVIDORES
+SERVIDOR	IP	MÁSCARA	GATEWAY	DNS
+DNS	172.16.0.10	255.255.255.0	172.16.0.1	172.16.0.10
+TFTP	172.16.0.20	255.255.255.0	172.16.0.1	172.16.0.10
+HTTP	172.16.0.30	255.255.255.0	172.16.0.1	172.16.0.10
+
+DNS --> services --> DNS --> www.empresa.com --> 172.16.0.30
+
+TFTP --> services --> TFTP --> ON
+
+HTTP --> services --> HTTP --> ON
+
+
+
+PCs
+
+Desktop --> IP configuration --> DHCP
+
+
+
+TELÉFONOS IP
+
+Physical --> Conectar cable corriente
+
+
+
+COPIAR CONFIGURACION TFTP
+
+copy running config tftp
+172.16.0.20
+Enter

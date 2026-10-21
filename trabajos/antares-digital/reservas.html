@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reservas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .barra-arriba {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .logo-texto {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .menu a:hover {
+            color: #007BFF;
+        }
+
+        .contenido {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .formulario {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .campo-fecha {
+            position: relative;
+        }
+
+        .campo-fecha input {
+            padding-right: 40px;
+        }
+
+        .icono-calendario {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .boton-negro {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            align-self: flex-end;
+            margin-top: 20px;
+        }
+
+        .pie-pagina {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 13px;
+            margin-top: 30px;
+        }
+
+        .pie-pagina a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="barra-arriba">
+        <div class="logo-texto">Antares Digital</div>
+        <div class="menu">
+            <a href="index.html">Inicio</a>
+            <a href="e-learning.html">E-learning</a>
+            <a href="contenidos.html">Contenidos</a>
+            <a href="catalogo.html">Catalogo</a>
+            <a href="materiales.html">Materiales</a>
+            <a href="pedidos.html">Pedidos</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </div>
+
+    <div class="contenido">
+        <h1>Reserva de Curso</h1>
+
+        <form class="formulario">
+            <label for="curso">Curso:</label>
+            <input type="text" id="curso" name="curso" value="Excel Avanzado" readonly>
+
+            <label for="fecha">Fecha de inicio:</label>
+            <div class="campo-fecha">
+                <input type="text" id="fecha" name="fecha" placeholder="dd / mm / aaaa" required>
+                <span class="icono-calendario">📅</span>
+            </div>
+
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <button type="button" class="boton-negro">Confirmar reserva</button>
+        </form>
+    </div>
+
+    <div class="pie-pagina">
+        © 2025 Antares Digital | <a href="#">Contacto</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Materiales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .barra-arriba {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .logo-texto {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .menu a:hover {
+            color: #007BFF;
+        }
+
+        .contenido {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .buscador-botones {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .buscador {
+            display: flex;
+            gap: 5px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-negro {
+            background-color: black;
+            color: white;
+        }
+
+        .btn-gris {
+            background-color: #666;
+            color: white;
+        }
+
+        .btn-azul {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .filtros-avanzados {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .filtros-avanzados span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+
+        .tabla-materiales {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .tabla-materiales th {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        .tabla-materiales td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .estado-activo {
+            color: green;
+            font-weight: bold;
+        }
+
+        .acciones {
+            display: flex;
+            gap: 10px;
+        }
+
+        .icono {
+            color: #ff6600;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .icono-borrar {
+            color: #ff0000;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .pie-pagina {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 13px;
+            margin-top: 30px;
+        }
+
+        .pie-pagina a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="barra-arriba">
+        <div class="logo-texto">Antares Digital</div>
+        <div class="menu">
+            <a href="index.html">Inicio</a>
+            <a href="e-learning.html">E-learning</a>
+            <a href="contenidos.html">Contenidos</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="materiales.html">Materiales</a>
+            <a href="pedidos.html">Pedidos</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </div>
+
+    <div class="contenido">
+        <h1>Gestión de Materiales</h1>
+
+        <div class="buscador-botones">
+            <div class="buscador">
+                <input type="text" placeholder="Buscar materiales...">
+                <button class="btn-negro">Buscar</button>
+            </div>
+            <div>
+                <button class="btn-negro">+ Nuevo Material</button>
+                <button class="btn-gris">📊 Generar Informe</button>
+                <button class="btn-negro">⚙️ Modo Administración</button>
+            </div>
+        </div>
+
+        <div class="filtros-avanzados">
+            <span>🔍 Filtros Avanzados</span>
+            <button class="btn-azul">Mostrar Filtros</button>
+        </div>
+
+        <table class="tabla-materiales">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Stock</th>
+                    <th>Ubicación</th>
+                    <th>Precio</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>MAT001</td>
+                    <td>Cable eléctrico 2mm</td>
+                    <td>Eléctrico</td>
+                    <td>500 metro</td>
+                    <td>Almacén A</td>
+                    <td>0.45€</td>
+                    <td><span class="estado-activo">Activo</span></td>
+                    <td class="acciones">
+                        <span class="icono">✏️</span>
+                        <span class="icono-borrar">🗑️</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MAT002</td>
+                    <td>Tornillo M6 acero inox</td>
+                    <td>Ferretería</td>
+                    <td>2000 unidad</td>
+                    <td>Estantería 3</td>
+                    <td>0.08€</td>
+                    <td><span class="estado-activo">Activo</span></td>
+                    <td class="acciones">
+                        <span class="icono">✏️</span>
+                        <span class="icono-borrar">🗑️</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MAT003</td>
+                    <td>Pintura acrílica blanca 5L</td>
+                    <td>Pintura</td>
+                    <td>35 bote</td>
+                    <td>Almacén B</td>
+                    <td>12.5€</td>
+                    <td><span class="estado-activo">Activo</span></td>
+                    <td class="acciones">
+                        <span class="icono">✏️</span>
+                        <span class="icono-borrar">🗑️</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MAT004</td>
+                    <td>Guantes de seguridad nitrilo</td>
+                    <td>Seguridad</td>
+                    <td>150 par</td>
+                    <td>Estantería 1</td>
+                    <td>1.2€</td>
+                    <td><span class="estado-activo">Activo</span></td>
+                    <td class="acciones">
+                        <span class="icono">✏️</span>
+                        <span class="icono-borrar">🗑️</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pie-pagina">
+        © 2025 Antares Digital | <a href="#">Contacto</a>
+    </div>
+
+</body>
+</html>

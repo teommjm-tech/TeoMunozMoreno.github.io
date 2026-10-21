@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Antares Digital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .barra-arriba {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .logo-texto {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .hero {
+            background-image: url('hero.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 600px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white; 
+            text-align: center;
+            padding: 0 20px;
+            filter: brightness(50%);
+        }
+
+        .texto-hero {
+            max-width: 600px;
+        }
+
+        .titulo-hero {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .subtitulo-hero {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .boton-negro {
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .seccion-soluciones {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .titulo-seccion {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .tres-tarjetas {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .tarjeta {
+            background-color: white;
+            padding: 20px;
+            width: 30%;
+            min-width: 250px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .titulo-tarjeta {
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .texto-tarjeta {
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .pie-pagina {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 13px;
+        }
+
+        .pie-pagina a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="barra-arriba">
+        <div class="logo-texto">Antares Digital</div>
+        <div class="menu">
+            <a href="#">Inicio</a>
+            <a href="e-learning.html" class="btn">E-learning</a>            
+            <a href="contenidos.html" class="btn">Contenidos</a>            
+            <a href="catalogo.html" class="btn">Catálogo</a>            
+            <a href="materiales.html" class="btn">Materiales</a>            
+            <a href="pedidos.html">Pedidos</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="texto-hero">
+            <h2 class="titulo-hero">Antares Desarrollo Digital (ADD)</h2>
+            <p class="subtitulo-hero">Factoría de contenidos SCORM para licenciar en modalidad de teleformación.</p>
+            <a href="#" class="boton-negro">Ver Catálogo</a>
+        </div>
+    </div>
+
+    <div class="seccion-soluciones">
+        <h2 class="titulo-seccion">Soluciones E-learning</h2>
+        <div class="tres-tarjetas">
+            <div class="tarjeta">
+                <h3 class="titulo-tarjeta">Desarrollo de Contenidos</h3>
+                <p class="texto-tarjeta">Cursos SCORM adaptados a la normativa Fundae y listos para impartir.</p>
+                <a href="#" class="boton-negro">Más información</a>
+            </div>
+            <div class="tarjeta">
+                <h3 class="titulo-tarjeta">Plataforma E-learning</h3>
+                <p class="texto-tarjeta">Gestión completa de la formación y emisión de diplomas con blockchain.</p>
+                <a href="#" class="boton-negro">Más información</a>
+            </div>
+            <div class="tarjeta">
+                <h3 class="titulo-tarjeta">Reservas y Pedidos</h3>
+                <p class="texto-tarjeta">Reserva tu curso o tramita tus pedidos de manera rápida y segura.</p>
+                <a href="#" class="boton-negro">Más información</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="pie-pagina">
+        © 2025 Antares Digital | <a href="#">Contacto</a>
+    </div>
+
+</body>
+</html>
