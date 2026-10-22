@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/png" href="TM.png">
 <title>Teo Muñoz · Portfolio ASIR</title>
 <meta name="description" content="Portfolio de Teo Muñoz, estudiante de ASIR en busca de prácticas en soporte técnico, sistemas y ciberseguridad.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,39 +17,43 @@
 <div class="hero"><div class="wrap">
   <div>
     <p class="eyebrow">Portfolio · Prácticas ASIR</p>
-    <h1>Teo Muñoz Moreno</h1>
+    <h1>Teo Muñoz</h1>
     <p class="lead">Estudiante de Administración de Sistemas Informáticos en Red, en busca de prácticas en soporte técnico, sistemas y ciberseguridad.</p>
     <ul class="chips"><li>ASIR · 2º curso</li><li>Inglés B2</li><li>7 certificaciones Cisco</li><li>3 meses en Irlanda</li></ul>
     <div class="btns">
+      <!-- OPCIONAL: sube tu CV como cv.pdf. Si no quieres este botón, borra la línea siguiente -->
+      <a class="btn main" href="cv.pdf">Descargar CV</a>
       <a class="btn" href="#contacto">Contactar</a>
+      <!-- Descarga del portfolio en PDF: el archivo Portfolio-Teo-Munoz.pdf debe estar en la misma carpeta que index.html -->
+      <a class="btn" href="Portfolio-Teo-Munoz.pdf" download>Descargar portfolio (PDF)</a>
     </div>
   </div>
-  <div class="photo" aria-label="Foto de Teo Muñoz">TM<img src="foto.jpg" alt="Foto de Teo Muñoz" onerror="this.remove()"></div>
+  <!-- FOTO: guarda tu foto como img/foto.jpg. Mientras no exista se muestran las iniciales -->
+  <div class="photo" aria-label="Foto de Teo Muñoz">TM<img src="img/foto.jpg" alt="Foto de Teo Muñoz" onerror="this.remove()"></div>
 </div></div>
 
 <main class="wrap">
 <section id="sobre-mi">
   <p class="label">Sobre mí</p>
-  <p>Soy estudiante de segundo curso de ASIR, me apasiona resolver problemas informáticos, tanto de hardware como de software. Los sistemas operativos y la ciberseguridad son lo que más disfruto, mi objetivo es trabajar en soporte técnico y ciberseguridad, con la meta de especializarme.</p>
-  <p>Soy persistente: no paro hasta encontrar la causa de un problema para solucionarlo. He trabajado en un entorno real en el extranjero y he participado en proyectos internacionales, lo que me ha dado inglés de nivel B2, autonomía y capacidad de trabajar en equipo con personas de otras culturas.</p>
+  <h2>Me gusta resolver problemas hasta encontrar la causa</h2>
+  <p>Soy estudiante de segundo curso de ASIR y me apasiona resolver problemas informáticos, tanto de hardware como de software. Los sistemas operativos y la ciberseguridad son lo que más disfruto, y mi objetivo es trabajar en soporte técnico y ciberseguridad, con la meta de especializarme y, en el futuro, crear mi propia empresa.</p>
+  <p>Soy persistente: cuando un problema se resiste, no paro hasta encontrar la causa. He trabajado en un entorno real en el extranjero y he participado en proyectos internacionales, lo que me ha dado inglés de nivel B2, autonomía y capacidad de trabajar en equipo con personas de otras culturas.</p>
   <div class="edu">
     <div class="card"><h3>CFGS Administración de Sistemas Informáticos en Red</h3><p class="meta">Digitech FP · 2º curso</p></div>
     <div class="card"><h3>CFGM Sistemas Microinformáticos y Redes</h3><p class="meta">Formación previa</p></div>
   </div>
 </section>
 
-
 <section id="experiencia">
-  <p class="label">Experiencia profesional</p>
-  <h2>Experiencia internacional · Erasmus+</h2>
+  <p class="label">Experiencia</p>
+  <h2>Prácticas en el extranjero</h2>
   <div class="card">
     <h3>RepairIT · Cork, Irlanda</h3>
-    <p class="meta">Programa Erasmus+ · 2025 · 3 meses</p>
-    <p>Realicé prácticas en un servicio técnico especializado en la reparación y mantenimiento de dispositivos electrónicos, incluyendo smartphones, ordenadores, tablets e impresoras. Participé en tareas de diagnóstico y reparación de hardware y software, sustitución de pantallas y componentes, formateo de unidades de almacenamiento e instalación de sistemas operativos.</p>
-    <p>Desarrollé autonomía en la resolución de incidencias técnicas, precisión en las intervenciones y capacidad para trabajar bajo presión. Además, adquirí experiencia en la atención al cliente en inglés y mejoré mi adaptación a entornos profesionales internacionales.</p>
+    <p class="meta">Erasmus+ · 2025 · 3 meses</p>
+    <p>Prácticas en una tienda de reparación de móviles, ordenadores, tablets, impresoras y otros dispositivos. Realicé reparaciones de hardware y software: cambio de pantallas, traspaso de componentes entre móviles, formateo de discos duros e instalación de sistemas operativos.</p>
+    <p>Resolví varias reparaciones por mi cuenta, atendí a clientes en inglés y aprendí a trabajar con rapidez y precisión bajo presión.</p>
   </div>
 </section>
-
 
 <section id="proyectos">
   <p class="label">Proyectos</p>
@@ -114,7 +117,7 @@
 <section id="intercambios">
   <p class="label">Intercambios</p>
   <h2>Proyectos internacionales</h2>
-  <p>Proyectos del Cuerpo Europeo Joven sobre medio ambiente y consumo responsable. En ellos debatíamos con jóvenes de otros países para contrastar puntos de vista y realidades distintas.</p>
+  <p>Proyectos del Cuerpo Europeo Joven sobre medio ambiente y consumo responsable, incluida la ropa de segunda mano y sus beneficios. En ellos debatíamos con jóvenes de otros países para contrastar puntos de vista y realidades distintas.</p>
   <ul class="timeline">
     <li><h3>2022</h3><p class="meta">Marruecos y España</p></li>
     <li><h3>2023</h3><p class="meta">Túnez, España y Finlandia</p></li>
@@ -148,7 +151,8 @@
     <p class="label" style="color:var(--hero-accent)">Contacto</p>
     <h2>Hablemos</h2>
     <p>Disponible para realizar las prácticas del segundo curso de ASIR.</p>
-    <div class="links"><a href="mailto:teommjm@gmail.com">teommjm@gmail.com</a><a href="https://www.linkedin.com/in/teo-mu%C3%B1oz-moreno-25004b445/?isSelfProfile=true" target="_blank" rel="noopener">LinkedIn</a></div>
+    <!-- CAMBIA estos dos enlaces por tu email y tu LinkedIn (si no tienes LinkedIn, borra el segundo) -->
+    <div class="links"><a href="mailto:TU-EMAIL@ejemplo.com">TU-EMAIL@ejemplo.com</a><a href="https://www.linkedin.com/in/TU-PERFIL" target="_blank" rel="noopener">LinkedIn</a></div>
   </div>
 </section>
 </main>
